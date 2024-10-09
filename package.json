@@ -45,5 +45,5 @@
   "devDependencies": {
     "tailwindcss": "^3.4.13"
   },
-  "proxy": "http://localhost:8000/"
+  "proxy": "https://mern-portfolio-backend-epnh.onrender.com/"
 }
