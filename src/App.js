@@ -15,12 +15,15 @@ function App() {
   const getPortfolioData = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axios.get('/api/portfolio/get-portfolio-data');
+
+      const baseURL = process.env.NODE_ENV === 'production'
+        ? 'https://mern-portfolio-backend-epnh.onrender.com'
+        : 'http://localhost:8000';
+      const response = await axios.get(`${baseURL}/api/portfolio/get-portfolio-data`);
+
       dispatch(SetPortfolioData(response.data));
       dispatch(ReloadData(false));
-      // console.log("response", response.data);
       dispatch(HideLoading());
-
     } catch (error) {
       console.log("error", error);
       dispatch(HideLoading());
